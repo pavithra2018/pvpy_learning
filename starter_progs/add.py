@@ -1,5 +1,5 @@
-print("enter first value")
-val1 = int(input())
+#print("enter first value")
+val1 = int(input("enter first value:"))
 print("enter second value")
 val2 = int(input())
 print("sum of two numbers is:")
