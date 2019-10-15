@@ -27,12 +27,28 @@
            ELSE it is not a palindrome
 """
 
-# Prompt and read text from user
-text_data = input("Enter a value: ")
+# Check if the text is given from Command line interface
+import sys
+if len(sys.argv) == 2:
+    print('Number of cli arguments:', len(sys.argv), 'arguments.')
+    print('Argument List:', str(sys.argv))
+    text_data = str(sys.argv[1])
+else:
+    # Check if the text is given from environment variable
+    import os
+    try:
+        text_data = os.environ['TEXT_DATA']
+        print('TEXT_DATA is set in the environment.')
+    except KeyError: 
+        # Prompt user and read text from console
+        text_data = input('Please enter a text: ')
+    finally:
+        # we have the final text_data to validate
+        print(text_data, 'is the text given.')
+
 # Reverse the given text using slicing and compare with original text
 if text_data[::-1] == text_data:
-    print(n, "is a Palindrome")
+    print(text_data, "is a \033[01m\033[34mPalindrome \033[00m")
 else:
-    print(n, "is NOT a Palindrome")
-
+    print(text_data, "is \033[01m\033[34mNOT a Palindrome \033[00m")
 
