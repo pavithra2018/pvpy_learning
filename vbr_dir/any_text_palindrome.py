@@ -28,13 +28,17 @@
 """
 import os
 import sys
+import inspect
+from datetime import datetime
 
 LOG_FILENAME = '/tmp/' + str((sys.argv[0]).rsplit('.',1)[0]) + '.log'
 # This is a method to print given message
 # Arguments: 
 #       msg - The message to be printed
 def my_print(msg):
-    print(msg)
+    now = datetime.now()
+    dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
+    print(str(sys.argv[0]) + ': '+ dt_string + ': ' + str(inspect.currentframe().f_back.f_lineno)  + ': INFO: ' + msg)
 
 ## Ensure that only 'bhasvara' user can run this program.
 if os.environ['USER'] != 'bhasvara':
