@@ -58,15 +58,28 @@ else:
     try:
         text_data = os.environ['TEXT_DATA']
         my_print('Word of text was given via TEXT_DATA variable in the environment.')
-    except KeyError: 
-        # Prompt user and read text from console
-        # Ternary operator => text_data = input('Please enter a text: ') if sys.stdin.isatty() else input()
-        if sys.stdin.isatty():
-            text_data = input('Please enter a word of text: ')
+    except KeyError:
+        # Check if a file input.txt exists in current directory and use it.
+        if os.path.isfile('input.txt'):
+            my_print("input.txt file exists. Reading from it.")
+            try:
+                fh = open('input.txt', 'r')
+                # Read the text from file and remove trailing newline character
+                text_data = fh.readline().rstrip()
+                fh.close()
+            except Exception as e:
+                my_print('Failed to read from file:' + str(e))
+                my_print('Setting text as \'default\'')
+                text_data = 'default'
         else:
-            # If we are not having a stdin() attached then read directly without prompy. 
-            #   Ex: PIPE (|) input from echo
-            text_data = input()
+            # Prompt user and read text from console
+            # Ternary operator => text_data = input('Please enter a text: ') if sys.stdin.isatty() else input()
+            if sys.stdin.isatty():
+                text_data = input('Please enter a word of text: ')
+            else:
+                # If we are not having a stdin() attached then read directly without prompy. 
+                #   Ex: PIPE (|) input from echo
+                text_data = input()
     finally:
         # we have the final text_data to validate
         my_print('\"' + text_data + '" is the given word of text.')
