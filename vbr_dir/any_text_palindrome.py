@@ -32,7 +32,7 @@ import inspect
 from datetime import datetime
 
 LOG_FILENAME = '/tmp/' + str((sys.argv[0]).rsplit('.',1)[0]) + '.log'
-# This is a method to print given message
+# This is a method to print given message with details for debugging.
 # Arguments: 
 #       msg - The message to be printed
 def my_print(msg):
@@ -47,11 +47,8 @@ if os.environ['USER'] != 'bhasvara':
 
 # Check if the text is given from Command line interface
 if len(sys.argv) >= 2:
-    #my_print('Number of cli arguments: ' + str(len(sys.argv)) + ' arguments.')
-    #my_print('Argument List: ' + str(sys.argv))
     my_print('The last argument from CLI was: ' + str(sys.argv[-1]))
     my_print('Word of text was given via CLI arguments')
-    #my_print(LOG_FILENAME)
     text_data = str(sys.argv[1])
 else:
     # Check if the text is given from environment variable
