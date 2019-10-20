@@ -72,7 +72,8 @@ else:
             # Prompt user and read text from console
             # Ternary operator => text_data = input('Please enter a text: ') if sys.stdin.isatty() else input()
             if sys.stdin.isatty():
-                text_data = input('Please enter a word of text: ')
+                my_print('Please enter a word of text: ')
+                text_data = input()
             else:
                 # If we are not having a stdin() attached then read directly without prompy. 
                 #   Ex: PIPE (|) input from echo
