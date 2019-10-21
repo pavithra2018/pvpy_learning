@@ -72,8 +72,11 @@ else:
             # Prompt user and read text from console
             # Ternary operator => text_data = input('Please enter a text: ') if sys.stdin.isatty() else input()
             if sys.stdin.isatty():
-                my_print('Please enter a word of text: ')
-                text_data = input()
+                try:
+                    text_data = input("Please enter a word of text: \n")
+                except KeyboardInterrupt:
+                    my_print("You have pressed CTRL-C. So, using \'default\' as text.")
+                    text_data = 'default'
             else:
                 # If we are not having a stdin() attached then read directly without prompy. 
                 #   Ex: PIPE (|) input from echo
@@ -82,9 +85,11 @@ else:
         # we have the final text_data to validate
         my_print('\"' + text_data + '" is the given word of text.')
 
-# Reverse the given text using slicing and compare with original text
-if text_data[::-1] == text_data:
-    my_print(text_data + ' is a Palindrome')
-else:
-    my_print(text_data + ' is NOT a Palindrome')
+# Check if we have multiple strings with 'space' separation
+for wordstr in text_data.split():
+    # Reverse the given text using slicing and compare with original text
+    if wordstr[::-1] == wordstr:
+        my_print(wordstr + ' is a Palindrome')
+    else:
+         my_print(wordstr + ' is NOT a Palindrome')
 
