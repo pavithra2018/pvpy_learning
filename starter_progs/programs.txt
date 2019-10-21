@@ -1,0 +1,5 @@
+given 2 numbers to print even or odd betwwn that
+to find 6th even num
+area of the triangle
+simple intrest,compound intrest
+count spaces in a given stringtype of triangle if sides are provided
