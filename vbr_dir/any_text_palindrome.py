@@ -31,6 +31,9 @@ import sys
 import inspect
 from datetime import datetime
 
+## User defined variables
+INPUT_FILENAME = 'input.txt'
+
 LOG_FILENAME = '/tmp/' + str((sys.argv[0]).rsplit('.',1)[0]) + '.log'
 # This is a method to print given message with details for debugging.
 # Arguments: 
@@ -39,6 +42,31 @@ def my_print(msg):
     now = datetime.now()
     dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
     print(str(sys.argv[0]) + ': '+ dt_string + ': ' + str(inspect.currentframe().f_back.f_lineno)  + ': INFO: ' + msg)
+
+# This is a method to find if a given string is palindrome or not.
+# Arguments:
+#       string_word - word of text
+def is_palindrome(string_word):
+    ret_msg = "{} is NOT a Palindrome".format(string_word)
+    # Reverse the given text using slicing and compare with original text
+    if string_word[::-1] == string_word:
+        ret_msg.replace('NOT', '')
+    return ret_msg
+
+# This is a method to readline from given file
+# Arguments:
+#       inputfile - input file to read a line
+def readline_from_file(inputfile):
+    try:
+        fh = open(inputfile, 'r')
+        # Read the text from file and remove trailing newline character
+        text_data = fh.readline().rstrip()
+        fh.close()
+    except Exception as e:
+        my_print('Failed to read from file:' + str(e))
+        my_print('Setting text as \'default\'')
+        text_data = 'default'
+    return text_data
 
 ## Ensure that only 'bhasvara' user can run this program.
 if os.environ['USER'] != 'bhasvara':
@@ -57,17 +85,9 @@ else:
         my_print('Word of text was given via TEXT_DATA variable in the environment.')
     except KeyError:
         # Check if a file input.txt exists in current directory and use it.
-        if os.path.isfile('input.txt'):
-            my_print("input.txt file exists. Reading from it.")
-            try:
-                fh = open('input.txt', 'r')
-                # Read the text from file and remove trailing newline character
-                text_data = fh.readline().rstrip()
-                fh.close()
-            except Exception as e:
-                my_print('Failed to read from file:' + str(e))
-                my_print('Setting text as \'default\'')
-                text_data = 'default'
+        if os.path.isfile(INPUT_FILENAME):
+            my_print("{} file exists. Reading from it.".format(INPUT_FILENAME))
+            text_data = readline_from_file(INPUT_FILENAME)
         else:
             # Prompt user and read text from console
             # Ternary operator => text_data = input('Please enter a text: ') if sys.stdin.isatty() else input()
@@ -87,9 +107,4 @@ else:
 
 # Check if we have multiple strings with 'space' separation
 for wordstr in text_data.split():
-    # Reverse the given text using slicing and compare with original text
-    if wordstr[::-1] == wordstr:
-        my_print(wordstr + ' is a Palindrome')
-    else:
-         my_print(wordstr + ' is NOT a Palindrome')
-
+    my_print(is_palindrome(wordstr))
