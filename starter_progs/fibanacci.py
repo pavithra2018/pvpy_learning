@@ -1,4 +1,6 @@
-n = int(input("enter a value "))
+#n = int(input("enter a value "))
+import sys
+n = int(sys.argv[1])
 i = 3
 n1 = 0
 n2 = 1

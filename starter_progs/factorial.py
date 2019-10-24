@@ -1,4 +1,6 @@
-n = int(input("enter a value"));
+#import sys
+#n = int(sys.argv[1])
+n = int(input("enter the value:"))
 i = n
 fact = 1
 while i>=1 :
