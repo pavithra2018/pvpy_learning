@@ -30,7 +30,7 @@ for i in range(0 , number) :
     #for adding the element to the array.
     array.append(temp)
 print(array)
-
+print(dir(array))
 #Logic to add the elements of the array.
 sum = 0
 for x in array :
