@@ -1,5 +1,12 @@
-given 2 numbers to print even or odd betwwn that
-to find 6th even num
-area of the triangle
-simple intrest,compound intrest
-count spaces in a given stringtype of triangle if sides are provided
+import sys
+if len(sys.argv) >= 2 :
+	print("required arguments recieved")
+else :
+	print("minimum two arguments required")
+	exit()
+filename = sys.argv[1]
+print(filename)
+fh = open(filename , 'r')
+text = fh.readline()
+fh.close()
+print(text)
