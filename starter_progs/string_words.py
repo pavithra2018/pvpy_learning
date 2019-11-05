@@ -39,10 +39,5 @@ print("the number of words in the text are {}".format(number_of_words))
 string = "finally print the word count by incrementing the space_count by one"
 print("the number of words  in the given string are:", len(string.split()))
 
+print( len(list(map( lambda word: word.strip(), string.split()))))
 
-
-
-
-
-
-  
