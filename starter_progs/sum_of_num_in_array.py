@@ -9,7 +9,7 @@
 #======================================================================
 #
 """
-    This program is to calculate the nums_sum of the numbers in the num_array.
+    This program is to calculate the sum of the numbers in the num_array.
     
     PSEUDOCODE :
         1. create an empty num_array
@@ -23,9 +23,9 @@
 
 #Dynamically reading elements into the num_array.
 num_array = []
-number = int(input("enter the nuber of elements to be summed:"))
+number = int(input("Enter the nuber of elements to be summed: "))
 for ncount in range(0 , number) :
-    print("enter a number:")
+    print("Enter a number: ", end='')
     temp = int(input())
     #for adding the element to the num_array.
     num_array.append(temp)
@@ -35,6 +35,9 @@ print(dir(num_array))
 nums_sum = 0
 for lnum in num_array :
     nums_sum = nums_sum + lnum
-print("nums_sum of numbers in the num_array are:", nums_sum)
+print("Sum of numbers in the num_array are:", nums_sum)
+
+# We can use sum() built-in method also
+print("Sum of numbers in the list {} is :{}".format( num_array, sum(num_array)))
 
 
