@@ -1,38 +1,40 @@
 #
 #======================================================================
 #
-#NAME                 : sum_of_num_in_array.py
+#NAME                 : sum_of_num_in_num_array.py
 #DATE                 : 24th oct, 2019
-#DESCRIPTION          : A python program to add the numbers in the array.
+#DESCRIPTION          : A python program to add the numbers in the num_array.
 #AUTHOR               : K pavithra
 #
 #======================================================================
 #
 """
-    This program is to calculate the sum of the numbers in the array.
+    This program is to calculate the nums_sum of the numbers in the num_array.
     
     PSEUDOCODE :
-        1. create an empty array
+        1. create an empty num_array
         2. read the input from the user dynamically
-        3. add the elements of the array
+        3. add the elements of the num_array
         4. print the sum
 """
 
-# Statically reading elements into array.
-#array = [1,20,40,50]
+# Statically reading elements into num_array.
+#num_array = [1,20,40,50]
 
-#Dynamically reading elements into the array.
-array = []
+#Dynamically reading elements into the num_array.
+num_array = []
 number = int(input("enter the nuber of elements to be summed:"))
-for i in range(0 , number) :
+for ncount in range(0 , number) :
     print("enter a number:")
     temp = int(input())
-    #for adding the element to the array.
-    array.append(temp)
-print(array)
-print(dir(array))
-#Logic to add the elements of the array.
-sum = 0
-for x in array :
-    sum = sum + x 
-print("sum of numbers in the array are:", sum)
+    #for adding the element to the num_array.
+    num_array.append(temp)
+print(num_array)
+print(dir(num_array))
+#Logic to add the elements of the num_array.
+nums_sum = 0
+for lnum in num_array :
+    nums_sum = nums_sum + lnum
+print("nums_sum of numbers in the num_array are:", nums_sum)
+
+
