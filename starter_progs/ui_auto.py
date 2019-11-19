@@ -20,3 +20,6 @@ element = fdriver.find_element_by_xpath("//span[@id='displayvalue']")
 print("sum of two values is:", element.text)
 time.sleep(5)
 fdriver.close()
+
+
+
