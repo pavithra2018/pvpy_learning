@@ -22,8 +22,8 @@
 """
 #import math
 principal_amount = float(input("enter the principal amount value: Rs."))
-rate_of_intrest = float(input("enter the rate of intrest: Rs."))
-time = float(input("enter the time in years:"))
+rate_of_intrest  = float(input("enter the rate of intrest: Rs."))
+time             = float(input("enter the time in years:"))
 compound_intrest = pow((1 + (rate_of_intrest/100)),time)*principal_amount
 #compound_intrest =((1 + (rate_of_intrest/100))**time) * principal_amount
 print("compound intrest is:", compound_intrest)
