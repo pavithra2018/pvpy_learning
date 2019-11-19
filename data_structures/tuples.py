@@ -16,6 +16,18 @@ t3 = (1, )
 t3 += (2,)
 print(t3)
 
+T = tuple('geeks') 
+a, b, c, d, e = T 
+#b = c = '*'
+#T = (a, b, c, d, e) 
+print(a)
+print(T) 
+print(type(T))
+T = (a, b, c, d, e)
+print(T)
+
+import time
+print(time.time())
 
 
 
