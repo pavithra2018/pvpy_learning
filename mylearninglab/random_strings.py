@@ -1,3 +1,21 @@
+""
+#
+#======================================================================
+#
+#NAME                 : simple_intreest.py
+#DATE                 : 24th oct, 2019
+#DESCRIPTION          : A python program to generate random string 
+#AUTHOR               : K pavithra
+#
+#======================================================================
+#
+"""
+
+
+
+
+
+
 """
 import random
 v1 = random.randint(1,7)
